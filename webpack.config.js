@@ -17,7 +17,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /.(png|jpe?g|gif|svg|jpg)$/,
+        test: /\.(png|jpe?g|gif|svg|jpg)$/,
         loader: 'file-loader',
         query: {
           name: 'assets/img/[name].[ext]'
@@ -29,6 +29,10 @@ module.exports = {
         query: {
           name: 'assets/audio/[name].[ext]'
         }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: 'file-loader'
       },
       {
         test: /\.s[ac]ss$/i,
