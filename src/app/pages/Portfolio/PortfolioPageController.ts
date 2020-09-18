@@ -12,9 +12,16 @@ export class PortfolioPageController {
     }
 
     start() {
+        const chargScreen: any = this.findInsideMe(".chargingScreen");
         const helloText: any = this.findInsideMe(".helloText");
+        const firstSection: any = this.findInsideMe(".first-section");
         helloText.style.opacity = 1;
-       
+        setTimeout(function () {
+            chargScreen.style.opacity = 0;
+            setTimeout(function () {
+                chargScreen.style.display = 'none';
+            }, 400);
+        }, 3000);
         // const box: any = this.findInsideMe(".box");
         // const TDBox: any = this.findInsideMe(".TDBox");
         // const clouds: any = this.findInsideMe(".cloud", true);
