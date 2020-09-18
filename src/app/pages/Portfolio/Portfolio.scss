@@ -39,12 +39,63 @@ $titleFont: integralCF;
             }
         }
         .first-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
             width: 100%;
-            height: 100%;
+            
             font-family: $titleFont;
             background: #D0F4EA;
             color: #2A2D43;
             transition: all 1s ease;
+            h1{
+                font-size: 50px;
+                padding-left: 100px;
+            }
+            .parrafo1{
+                margin-top: 130px;
+            }
+            p{
+                font-size: 20px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+                color: rgba(0, 0, 0, 0.425);
+                margin-top: 10px;
+                padding-left: 100px;
+            }  
+            .svg-up{                
+                // height: 800px;
+            }   
+        }
+        .second-section{
+            display: flex;
+            width: 50%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
+            
+            h1{
+                padding-left:60px;
+                font-family: $titleFont;
+                font-size: 50px;
+            }
+            p{
+                margin-bottom: 100px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                padding-left:60px;
+                font-size: 20px;
+            } 
+            img{
+                width: 40%;
+                margin-left: 800px;
+            } 
+        }
+        .section-2{
+            background-color: #414361;
+          svg{
+            width: 100%;
+          }
         }
         .section-skills{
             display: flex;
@@ -84,6 +135,10 @@ $titleFont: integralCF;
                     }
                 }
             }
+        }
+        .wave-down{
+           height: 600px;     
+                
         }
     }
 }
