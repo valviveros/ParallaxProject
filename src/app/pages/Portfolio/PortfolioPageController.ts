@@ -22,6 +22,54 @@ export class PortfolioPageController {
                 chargScreen.style.display = 'none';
             }, 400);
         }, 3000);
+        $(document).ready(function(){
+            var cursor = $(".cursor");
+            
+                $(window).mousemove(function(e) {
+                    cursor.css({
+                        top: e.clientY - cursor.height() / 2,
+                        left: e.clientX - cursor.width() / 2
+                    });
+                });
+            
+                $(window)
+                    .mouseleave(function() {
+                        cursor.css({
+                            opacity: "0"
+                        });
+                    })
+                    .mouseenter(function() {
+                        cursor.css({
+                            opacity: "1"
+                        });
+                    });
+            
+                $(".hoverable")
+                    .mouseenter(function() {
+                        cursor.css({
+                            transform: "scale(3.2)",
+                            opacity: "0.5"
+                        });
+                    })
+                    .mouseleave(function() {
+                        cursor.css({
+                            transform: "scale(1)",
+                            opacity: "1"
+                        });
+                    });
+            
+                $(window)
+                    .mousedown(function() {
+                        cursor.css({
+                            transform: "scale(.2)"
+                        });
+                    })
+                    .mouseup(function() {
+                        cursor.css({
+                            transform: "scale(1)"
+                        });
+                    });
+            });
         // const box: any = this.findInsideMe(".box");
         // const TDBox: any = this.findInsideMe(".TDBox");
         // const clouds: any = this.findInsideMe(".cloud", true);

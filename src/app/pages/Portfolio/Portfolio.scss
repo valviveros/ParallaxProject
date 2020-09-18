@@ -1,8 +1,14 @@
 $titleFont: integralCF;
+$bodyFont: montserrat;
 
 @font-face {
     font-family: integralCF;
     src: url(../../../../r-assets/fonts/IntegralCF-Bold.otf);
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url(../../../../r-assets/fonts/Montserrat-Regular.ttf);
 }
 
 #portfolio-page {
@@ -85,6 +91,18 @@ $titleFont: integralCF;
                 }
             }
         }
+    }
+    .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #7F2CCB;
+        pointer-events: none;
+        // mix-blend-mode: difference;
+        opacity: 1;
+        z-index: 999;
+        transition: transform 0.2s;
     }
 }
 
