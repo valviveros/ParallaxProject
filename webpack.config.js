@@ -32,7 +32,10 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: 'file-loader'
+        loader: 'file-loader',
+        query: {
+          name: 'assets/fonts/[name].[ext]'
+        }
       },
       {
         test: /\.s[ac]ss$/i,

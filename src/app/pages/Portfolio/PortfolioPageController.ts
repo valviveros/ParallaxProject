@@ -14,6 +14,7 @@ export class PortfolioPageController {
     start() {
         const helloText: any = this.findInsideMe(".helloText");
         helloText.style.opacity = 1;
+       
         // const box: any = this.findInsideMe(".box");
         // const TDBox: any = this.findInsideMe(".TDBox");
         // const clouds: any = this.findInsideMe(".cloud", true);
@@ -25,7 +26,7 @@ export class PortfolioPageController {
 
         //     clouds[0].style.left = `${p * 2}%`;
         //     clouds[1].style.left = `${p * 1.3}%`;
-            
+
         //     if (window.scrollY >= 340) {
         //         TDBox.style.opacity = 1;
         //         if (window.scrollY >= 350) {
