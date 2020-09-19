@@ -19,14 +19,50 @@ export class PortfolioPageController {
         const chargScreen: any = this.findInsideMe(".chargingScreen");
         const helloText: any = this.findInsideMe(".helloText");
         const firstSection: any = this.findInsideMe(".first-section");
+        const secondSection: any = this.findInsideMe(".second-section");
+        const sectionTwo: any = this.findInsideMe(".section-2");
+        const sectionSkills: any = this.findInsideMe(".section-skills");
+        let count: number = 0;
         helloText.style.opacity = 1;
+        firstSection.style.display = "none";
+        secondSection.style.display = "none";
+        sectionTwo.style.display = "none";
+        sectionSkills.style.display = "none";
         // Función que hace un callback (otra función, en este caso vacía) para dentro de sí aplicar opacidad y entre otros estilos a los elementos html en cierto tiempo contado
-        setTimeout(function () {
-            chargScreen.style.opacity = 0;
-            setTimeout(function () {
-                chargScreen.style.display = 'none';
-            }, 400);
-        }, 3000);
+        chargScreen.addEventListener('click', () => {
+            count += 1;
+            switch (count) {
+                case 1:
+                    chargScreen.style.background = "#FFA9E7";
+                    helloText.style.backgroundImage = "-webkit-linear-gradient(#414361 50%, #D0F4EA 50%)";
+                    break;
+                case 2:
+                    chargScreen.style.background = "#D0F4EA";
+                    helloText.style.backgroundImage = "-webkit-linear-gradient(#FF84E8 50%, #414361 50%)";
+                    break;
+                case 3:
+                    chargScreen.style.opacity = 0;
+                    setTimeout(function () {
+                        chargScreen.style.display = "none";
+                        firstSection.style.display = "flex";
+                        secondSection.style.display = "flex";
+                        sectionTwo.style.display = "block";
+                        sectionSkills.style.display = "flex";
+                        setTimeout(function() {
+                            firstSection.style.opacity = 1;
+                        }, 100);
+                    });
+                    break;
+                default:
+                    break;
+            }
+        });
+            // setTimeout(function () {
+            //     chargScreen.style.opacity = 0;
+            //     setTimeout(function () {
+            //         chargScreen.style.display = 'none';
+            //     }, 400);
+            // }, 3000);
         // Se hace selección del document con un JQuery para saber si este está cargado , de modo que ejecutará una función vacía la cuala hará selección del elemento con clase cursor
         $(document).ready(function () {
             var cursor = $(".cursor");
