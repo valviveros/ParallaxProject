@@ -6,12 +6,20 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel src -d Portfolio/canvas",
+    "check-types": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/jquery": "^3.5.1",
     "@types/lodash": "^4.14.161",
     "@types/source-map": "^0.5.2",
@@ -31,6 +39,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "js-to-ts-converter": "^0.18.1",
     "lodash": "^4.17.20"
   }
 }

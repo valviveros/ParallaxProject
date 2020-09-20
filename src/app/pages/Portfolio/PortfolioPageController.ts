@@ -1,3 +1,4 @@
+import{InteractiveFlowers} from './animations/interactive-flowers'
 export class PortfolioPageController {
     view: any;
     component = {
@@ -15,6 +16,7 @@ export class PortfolioPageController {
         const chargScreen: any = this.findInsideMe(".chargingScreen");
         const helloText: any = this.findInsideMe(".helloText");
         const firstSection: any = this.findInsideMe(".first-section");
+        // const thirdSection: any= this.findInsideMe(".section-3");
         helloText.style.opacity = 1;
         setTimeout(function () {
             chargScreen.style.opacity = 0;
@@ -70,6 +72,28 @@ export class PortfolioPageController {
                         });
                     });
             });
+
+            if (navigator.serviceWorker.controller) {
+                console.log('Active service worker found, no need to register');
+              } else {
+                navigator.serviceWorker
+                  .register('sw.js', {
+                    scope: './'
+                  })
+                  .then(function(reg) {
+                    console.log(`SW has been registered for scope (${reg.scope})`);
+                  });
+              }
+            
+              const canvas = <HTMLCanvasElement>document.getElementById('c');
+              canvas.width = document.body.clientWidth;
+              canvas.height = document.body.clientHeight;
+              const flowers = new InteractiveFlowers(canvas);
+            
+              const btn = document.getElementById('clearBtn');
+              btn.addEventListener('click', () => {
+                flowers.clearCanvas();
+              });
         // const box: any = this.findInsideMe(".box");
         // const TDBox: any = this.findInsideMe(".TDBox");
         // const clouds: any = this.findInsideMe(".cloud", true);
@@ -92,6 +116,8 @@ export class PortfolioPageController {
         //     }
         // }
     }
+
+    
 
     findInsideMe(selector: string, all = false) {
         const query = `#app #${this.component.id} ${selector}`;

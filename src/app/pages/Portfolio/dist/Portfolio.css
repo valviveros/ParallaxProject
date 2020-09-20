@@ -1,0 +1,196 @@
+@font-face {
+  font-family: integralCF;
+  src: url(../../../../r-assets/fonts/IntegralCF-Bold.otf);
+}
+@font-face {
+  font-family: montserrat;
+  src: url(../../../../r-assets/fonts/Montserrat-Regular.ttf);
+}
+#portfolio-page {
+  background: #2A2D43;
+  overflow-x: hidden;
+  display: flex;
+  flex-flow: column wrap;
+}
+#portfolio-page .sections {
+  width: 100vw;
+  height: 100vh;
+}
+#portfolio-page .sections .chargingScreen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+}
+#portfolio-page .sections .chargingScreen .helloText {
+  background-image: -webkit-linear-gradient(#FFA9E7 50%, #D0F4EA 50%);
+  background-repeat: repeat-y;
+  color: #D0F4EA;
+  background-position: 0 0;
+  font-size: 85px;
+  font-family: integralCF;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-animation: stripes 5s linear infinite;
+  animation: stripes 5s linear infinite;
+  opacity: 0;
+  transition: all 1s ease;
+}
+#portfolio-page .sections .first-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  font-family: integralCF;
+  background: #D0F4EA;
+  color: #2A2D43;
+  transition: all 1s ease;
+}
+#portfolio-page .sections .first-section h1 {
+  font-size: 50px;
+  padding-left: 100px;
+}
+#portfolio-page .sections .first-section .parrafo1 {
+  margin-top: 130px;
+}
+#portfolio-page .sections .first-section p {
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+  color: rgba(0, 0, 0, 0.425);
+  margin-top: 10px;
+  padding-left: 100px;
+}
+#portfolio-page .sections .second-section {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+#portfolio-page .sections .second-section h1 {
+  padding-left: 60px;
+  font-family: integralCF;
+  font-size: 50px;
+}
+#portfolio-page .sections .second-section p {
+  margin-bottom: 100px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-left: 60px;
+  font-size: 20px;
+}
+#portfolio-page .sections .second-section img {
+  width: 40%;
+  margin-left: 800px;
+}
+#portfolio-page .sections .section-2 {
+  background-color: #414361;
+}
+#portfolio-page .sections .section-2 svg {
+  width: 100%;
+}
+#portfolio-page .sections .section-skills {
+  padding: 0 0 20px 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #414361;
+  font-family: integralCF;
+}
+#portfolio-page .sections .section-skills .container {
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  grid-gap: 80px;
+  margin: auto 0;
+}
+#portfolio-page .sections .section-skills .container .box {
+  width: 100%;
+}
+#portfolio-page .sections .section-skills .container .box .chart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 25px;
+  line-height: 160px;
+  height: 160px;
+  color: #D0F4EA;
+}
+#portfolio-page .sections .section-skills .container .box h3 {
+  display: block;
+  text-align: center;
+  color: #D0F4EA;
+}
+#portfolio-page .sections .section-skills .container .box canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100%;
+}
+#portfolio-page .sections .wave-down {
+  height: 600px;
+}
+#portfolio-page .sections .flores {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  background: #2a2d43;
+  font-family: integralCF;
+  color: #d0f4ea;
+}
+#portfolio-page .sections .flores .instuction {
+  width: 100px;
+  height: 30px;
+}
+#portfolio-page .sections .flores .instuction #c {
+  width: 100%;
+  height: 300%;
+  overflow: hidden;
+  touch-action: none;
+}
+#portfolio-page .sections .flores .instuction #clearBtn {
+  margin: 12px;
+  height: 50px;
+  width: 50px;
+  background: #d0f4ea;
+  border-radius: 50px;
+}
+#portfolio-page .cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #7F2CCB;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 999;
+  transition: transform 0.2s;
+}
+
+@media (min-width: 420px) and (max-width: 659px) {
+  .container {
+    grid-template-columns: repeat(2, 160px);
+  }
+}
+@media (min-width: 660px) and (max-width: 899px) {
+  .container {
+    grid-template-columns: repeat(3, 160px);
+  }
+}
+@media (min-width: 900px) {
+  .container {
+    grid-template-columns: repeat(4, 160px);
+  }
+}
+@keyframes stripes {
+  0% {
+    background-position: 0 -200px;
+  }
+}
