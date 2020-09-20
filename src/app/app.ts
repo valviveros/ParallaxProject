@@ -1,6 +1,7 @@
 import { ExamplePageController } from './pages/Example/ExamplePageController';
 import { HomePageController } from './pages/Home/HomePageController';
 import { PortfolioPageController } from './pages/Portfolio/PortfolioPageController';
+
 class App {
 
   mainPages = [
@@ -47,6 +48,8 @@ class App {
 
 const app = new App();
 app.render();
+require('./pages/Portfolio/phone')
+
 
 
 
