@@ -1,13 +1,9 @@
 // Se importan las clases del controlador que se va a necesitar
-import { ExamplePageController } from './pages/Example/ExamplePageController';
-import { HomePageController } from './pages/Home/HomePageController';
 import { PortfolioPageController } from './pages/Portfolio/PortfolioPageController';
 
 class App {
   // Arreglo de controllers
   mainPages = [
-    // HomePageController
-    // ExamplePageController
     PortfolioPageController
   ];
   // Arreglo vacío donde añadiremos controllers

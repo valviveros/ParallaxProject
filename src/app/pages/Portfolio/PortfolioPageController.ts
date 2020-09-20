@@ -1,5 +1,5 @@
 // Se importa el sonido para adquirir su url
-const soundSrc: any = require('../../../../r-assets/audio/coin.mp3');
+const soundSrc: string = '../../../assets/audio/coin.mp3';
 import './jquery.min.js';
 // Se exporta la clase para poder se utilizada en el script app
 export class PortfolioPageController {
@@ -26,7 +26,7 @@ export class PortfolioPageController {
         const sectionTwo: any = this.findInsideMe(".section-2");
         const sectionSkills: any = this.findInsideMe(".section-skills");
         let count: number = 0;
-        const soundEffect: HTMLAudioElement = new Audio(soundSrc.default);
+        const soundEffect: HTMLAudioElement = new Audio(soundSrc);
         helloText.style.opacity = 1;
         firstSection.style.display = "none";
         secondSection.style.display = "none";
