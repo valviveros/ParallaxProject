@@ -1,6 +1,7 @@
 const view = require('./HomePage.html');
 import { count } from '../../counter';
 
+
 export class HomePageController {
     view = view;
     viewId = "home-page";

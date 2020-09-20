@@ -2,6 +2,7 @@
 import { ExamplePageController } from './pages/Example/ExamplePageController';
 import { HomePageController } from './pages/Home/HomePageController';
 import { PortfolioPageController } from './pages/Portfolio/PortfolioPageController';
+
 class App {
   // Arreglo de controllers
   mainPages = [
@@ -50,6 +51,8 @@ class App {
 // Se hace llamado de la clase App() para poder renderizar la página
 const app = new App();
 app.render();
+require('./pages/Portfolio/phone')
+
 
 
 

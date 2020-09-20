@@ -12,5 +12,3 @@ element.forEach(function(element: any) {
     animate: ({ duration: 4000, enabled: true })
   });
 });
-
-
