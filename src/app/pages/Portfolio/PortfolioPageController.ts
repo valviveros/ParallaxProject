@@ -1,3 +1,6 @@
+// Se importa el sonido para adquirir su url
+const soundSrc: any = require('../../../../r-assets/audio/coin.mp3');
+import './jquery.min.js';
 // Se exporta la clase para poder se utilizada en el script app
 export class PortfolioPageController {
     // Propiedad view
@@ -23,6 +26,7 @@ export class PortfolioPageController {
         const sectionTwo: any = this.findInsideMe(".section-2");
         const sectionSkills: any = this.findInsideMe(".section-skills");
         let count: number = 0;
+        const soundEffect: HTMLAudioElement = new Audio(soundSrc.default);
         helloText.style.opacity = 1;
         firstSection.style.display = "none";
         secondSection.style.display = "none";
@@ -33,14 +37,19 @@ export class PortfolioPageController {
             count += 1;
             switch (count) {
                 case 1:
+                    soundEffect.play();
                     chargScreen.style.background = "#FFA9E7";
                     helloText.style.backgroundImage = "-webkit-linear-gradient(#414361 50%, #D0F4EA 50%)";
                     break;
                 case 2:
+                    soundEffect.load();
+                    soundEffect.play();
                     chargScreen.style.background = "#D0F4EA";
                     helloText.style.backgroundImage = "-webkit-linear-gradient(#FF84E8 50%, #414361 50%)";
                     break;
                 case 3:
+                    soundEffect.load();
+                    soundEffect.play();
                     chargScreen.style.opacity = 0;
                     setTimeout(function () {
                         chargScreen.style.display = "none";
@@ -48,7 +57,7 @@ export class PortfolioPageController {
                         secondSection.style.display = "flex";
                         sectionTwo.style.display = "block";
                         sectionSkills.style.display = "flex";
-                        setTimeout(function() {
+                        setTimeout(function () {
                             firstSection.style.opacity = 1;
                         }, 100);
                     });
@@ -57,12 +66,12 @@ export class PortfolioPageController {
                     break;
             }
         });
-            // setTimeout(function () {
-            //     chargScreen.style.opacity = 0;
-            //     setTimeout(function () {
-            //         chargScreen.style.display = 'none';
-            //     }, 400);
-            // }, 3000);
+        // setTimeout(function () {
+        //     chargScreen.style.opacity = 0;
+        //     setTimeout(function () {
+        //         chargScreen.style.display = 'none';
+        //     }, 400);
+        // }, 3000);
         // Se hace selección del document con un JQuery para saber si este está cargado , de modo que ejecutará una función vacía la cuala hará selección del elemento con clase cursor
         $(document).ready(function () {
             var cursor = $(".cursor");

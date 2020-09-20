@@ -17,6 +17,7 @@
     "@types/source-map": "^0.5.2",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^4.3.0",
+    "easy-pie-chart-typescript": "0.0.4",
     "file-loader": "^6.1.0",
     "html-loader": "^1.3.0",
     "html-webpack-plugin": "^4.4.1",
