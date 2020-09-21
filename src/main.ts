@@ -11,10 +11,5 @@ require('./assets/img/everything_i_wanted.jpg');
 require('./assets/img/ice_cream.jpg');
 require('./assets/img/single.jpg');
 require('./assets/img/let_go_for_tonight.jpg');
-// require('../r-assets/audio/song2.mp3')
-// require('../r-assets/audio/song3.mp3')
-// require('../r-assets/img/cover1.jpg')
-// require('../r-assets/img/cover2.jpg')
-// require('../r-assets/img/cover3.jpg')
 
 import './styles.scss';

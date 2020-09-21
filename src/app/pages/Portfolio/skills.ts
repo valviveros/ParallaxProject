@@ -1,10 +1,9 @@
-import { update } from 'lodash';
 // Se hace importación de las librerías que se necesitan
 import { EasyPieChart } from './easyPieChart';
 var element: any = document.querySelectorAll(".chart");
 const skillsCont: any = document.querySelector(".skillsContainer");
 var count: number = 0;
-
+// Función que crea los EasyPieChart con sus respesctivas propiedades, primero recorre cada elemento que sea un chart para aplicarle estas propiedades y luego lo anima
 function createCharts() {
   element.forEach(function (element: any) {
     new EasyPieChart(element, {
@@ -18,7 +17,7 @@ function createCharts() {
     });
   });
 }
-
+// Función que al hacer un scroll dentro de la página se ejecuta, este revisa que este en la altura de la sección que se quiere que carguen los charts
 window.onscroll = () => {
   if (window.scrollY >= 825) {
     count += 1;

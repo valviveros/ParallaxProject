@@ -23,6 +23,7 @@ export class PortfolioPageController {
         const chargScreen: any = this.findInsideMe(".chargingScreen");
         const helloText: any = this.findInsideMe(".helloText");
         const firstSection: any = this.findInsideMe(".first-section");
+        const name: any = this.findInsideMe(".first-section h1");
         const secondSection: any = this.findInsideMe(".second-section");
         const sectionTwo: any = this.findInsideMe(".section-2");
         const sectionSkills: any = this.findInsideMe(".section-skills");
@@ -35,10 +36,9 @@ export class PortfolioPageController {
         helloText.style.opacity = 1;
         menu.style.display = "none";
         firstSection.style.display = "none";
+        name.style.transform = "translateX(250px)";
         secondSection.style.display = "none";
         sectionTwo.style.display = "none";
-        // skillsCont.style.display = "none";
-        // sectionSkills.style.display = "none";
         sectionSlider.style.display = "none";
         sectionWorks.style.display = "none";
         // Función que hace un callback (otra función, en este caso vacía) para dentro de sí aplicar opacidad y entre otros estilos a los elementos html en cierto tiempo contado
@@ -66,7 +66,6 @@ export class PortfolioPageController {
                         firstSection.style.display = "flex";
                         secondSection.style.display = "flex";
                         sectionTwo.style.display = "block";
-                        sectionSkills.style.display = "flex";
                         sectionSlider.style.display = "flex";
                         sectionWorks.style.display = "block";
                         setTimeout(function () {
@@ -74,6 +73,9 @@ export class PortfolioPageController {
                             firstSection.style.opacity = 1;
                             secondSection.style.opacity = 1;
                         }, 100);
+                        setTimeout(function() {
+                            name.style.transform = "translateX(0px)";
+                        }, 300);
                     });
                     break;
                 default:
@@ -81,9 +83,13 @@ export class PortfolioPageController {
             }
         });
         $(".image").mouseenter(function () {
-            image.style.transform = "scale(1.1)";
+            $(".image").css({
+                transform: "scale(1.1)"
+            });
         }).mouseleave(function () {
-            image.style.transform = "scale(1)";
+            $(".image").css({
+                transform: "scale(1)"
+            });
         });
         // Se hace selección del document con un JQuery para saber si este está cargado , de modo que ejecutará una función vacía la cuala hará selección del elemento con clase cursor
         $(document).ready(function () {
