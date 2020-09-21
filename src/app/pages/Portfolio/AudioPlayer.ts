@@ -1,18 +1,3 @@
-const cancion1 = require('../../../../r-assets/audio/how-you-like-that.mp3')
-const cancion2 = require('../../../../r-assets/audio/everything-i-wanted.mp3')
-const cancion3 = require('../../../../r-assets/audio/ice-cream.mp3')
-const cancion4 = require('../../../../r-assets/audio/single.mp3')
-const cancion5 = require('../../../../r-assets/audio/let-go-for-tonight.mp3')
-console.log(cancion1);
-
-const cover1 = require('../../../../r-assets/img/how_you_like_that.jpg')
-const cover2 = require('../../../../r-assets/img/everything_i_wanted.jpg')
-const cover3 = require('../../../../r-assets/img/ice_cream.jpg')
-const cover4 = require('../../../../r-assets/img/single.jpg')
-const cover5 = require('../../../../r-assets/img/let_go_for_tonight.jpg')
-
-
-
 export class AudioPlayer {
     domElement: HTMLElement;
     src: string;
@@ -39,7 +24,6 @@ export class AudioPlayer {
     constructor(domElement: HTMLElement) {
         this.domElement = domElement;
         this.src = `${this.domElement.dataset.src}`;
-        console.log(this.src)
         this.audio = new Audio(this.src);
         this.playButton = this.domElement.querySelector(".controls .playBtn");
         this.muteButton = this.domElement.querySelector(".controls .muteBtn");
@@ -54,8 +38,8 @@ export class AudioPlayer {
         this.currentTime = this.domElement.querySelector(".cover .currentTime");
         this.durationTime = this.domElement.querySelector(".cover .durationTime");
         this.songIndex = 0;
-        this.songs = [cancion1.default,cancion2.default,cancion3.default,cancion4.default,cancion5.default];
-        this.covers = [cover1.default,cover2.default,cover3.default,cover4.default,cover5.default];
+        this.songs = ['./assets/audio/how-you-like-that.mp3', './assets/audio/everything-i-wanted.mp3', './assets/audio/ice-cream.mp3', './assets/audio/single.mp3', './assets/audio/let-go-for-tonight.mp3'];
+        this.covers = ['./assets/img/how_you_like_that.jpg', 'assets/img/everything_i_wanted.jpg', './assets/img/ice_cream.jpg', './assets/img/single.jpg', './assets/img/let_go_for_tonight.jpg'];
         this.titles = ['How You Like That', 'everything i wanted', 'Ice Cream', 'Single', 'Let Go for Tonight'];
         this.artists = ['BLACKPINK', 'Billie Eilish', 'BLACKPINK, Selena Gomez', 'The Neighbourhood', 'Foxes'];
         this.timeCount = 0;
