@@ -258,6 +258,7 @@ html {
                 align-self: flex-start;
                 padding: 0 0 0 50px;
                 margin-bottom: 50px;
+                transition: all 1s ease;
             }
 
             .slider-contenedor {
@@ -269,7 +270,7 @@ html {
                 justify-content: center;
                 align-items: center;
                 border-radius: 50px;
-                
+                transition: all 1s ease;
                 .slider {
                     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
                     border-radius: 5px;

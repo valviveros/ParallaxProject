@@ -34,6 +34,9 @@ export class PortfolioPageController {
         const skillsCont: any = this.findInsideMe(".skillsContainer");
         const sectionSlider: any = this.findInsideMe(".section-slider");
         const sectionWorks: any = this.findInsideMe(".section-trabajos");
+        const sectionDesign: any = this.findInsideMe(".section-slider h1");
+        console.log(sectionDesign, sectionSkiT)
+        const slider: any = this.findInsideMe(".slider-contenedor");
         let count: number = 0;
         const soundEffect: HTMLAudioElement = new Audio(soundSrc);
         helloText.style.opacity = 1;
@@ -46,6 +49,8 @@ export class PortfolioPageController {
         secondImage.style.transform = "translateY(250px)";
         sectionTwo.style.display = "none";
         sectionSkiT.style.transform = "translateX(500px)";
+        sectionDesign.style.transform = "translateY(500px)";
+        slider.style.opacity = 0;
         sectionSlider.style.display = "none";
         sectionWorks.style.display = "none";
         // Función que hace un callback (otra función, en este caso vacía) para dentro de sí aplicar opacidad y entre otros estilos a los elementos html en cierto tiempo contado
@@ -84,7 +89,6 @@ export class PortfolioPageController {
                             name.style.transform = "translateX(0px)";
                             secondTitle.style.transform = "translateY(0px)";
                             secondText.style.transform = "translateY(0px)";
-                            secondImage.style.transform = "translateY(0px)";
                         }, 300);
                     });
                     break;
@@ -92,12 +96,6 @@ export class PortfolioPageController {
                     break;
             }
         });
-        // window.onscroll = () => {
-        //     console.log(scrollY);
-        //     if (window.scrollY >= 825) {
-        //         sectionSkiT.style.transform = "translateX(0px)";
-        //     }
-        // };
         $(".image").mouseenter(function () {
             $(".image").css({
                 transform: "scale(1.1)"
