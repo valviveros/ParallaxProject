@@ -11,5 +11,6 @@ require('./assets/img/everything_i_wanted.jpg');
 require('./assets/img/ice_cream.jpg');
 require('./assets/img/single.jpg');
 require('./assets/img/let_go_for_tonight.jpg');
+require('./app/pages/Portfolio/cositas');
 
 import './styles.scss';

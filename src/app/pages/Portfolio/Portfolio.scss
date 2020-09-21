@@ -39,6 +39,7 @@ html {
     // overflow-x: hidden;
     display: flex;
     flex-flow: column wrap;
+
     .sections {
         width: 100vw;
         height: 100vh;
@@ -70,17 +71,19 @@ html {
                 transition: all 1s ease;
             }
         }
-        .menu{
+
+        .menu {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             width: 100%;
             padding: 10px;
-            height: 50px; 
+            height: 50px;
             font-family: $bodyFont;
             transition: all 1s ease;
             opacity: 0;
-            ul  {
+
+            ul {
                 list-style: none;
                 color: white;
                 display: flex;
@@ -88,15 +91,16 @@ html {
             }
 
             li {
-                a{
+                a {
                     text-decoration: none;
-                    padding:20px 30px 0 0;
-                    color: white; 
+                    padding: 20px 30px 0 0;
+                    color: white;
                     cursor: none;
                 }
-                
-            }    
+
+            }
         }
+
         .first-section {
             display: flex;
             flex-direction: column;
@@ -340,7 +344,7 @@ html {
                     background-color: #414361;
                 }
             }
-          
+
 
         }
 
@@ -375,7 +379,7 @@ html {
                             font-size: 18px;
                             text-align: justify;
                         }
-                     
+
                     }
                 }
 
@@ -383,7 +387,7 @@ html {
             }
 
             #app2 {
-                margin-bottom: 100px;
+                // margin-bottom: 100px;
                 display: flex;
                 flex-flow: column wrap;
                 width: 100%;
@@ -1053,6 +1057,7 @@ html {
                     grid-template-rows: 70px 36px 26px 33px 13px 120px 20px 87px 27px 27px 17px 10px 47px 10px 30px 55px;
                     z-index: 5;
                     justify-content: center;
+
                     .player {
                         width: 177px;
                         height: 166px;
@@ -1198,34 +1203,230 @@ html {
                 }
             }
 
-            .programacion{
+
+            .programacion {
                 width: 100%;
-                height: 900px;
+                // height: 900px;
                 background-color: #414361;
-                .contenedor-textos {
+
+                .flex {
+                    // height: 800px;
                     display: flex;
-                    width: 40%;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
 
-                    .texto {
-                        color: #ffffff;
-                        padding: 0 0 0 50px;
+                    .contenedor-textos {
+                        display: flex;
+                        width: 40%;
 
-                        h1 {
-                            padding-top: 50px;
-                            font-family: $titleFont;
-                            font-size: 50px;
+                        .texto {
+                            color: #ffffff;
+                            padding: 0 0 0 50px;
+
+                            h1 {
+                                padding-top: 50px;
+                                font-family: $titleFont;
+                                font-size: 50px;
+                            }
+
+                            p {
+                                padding-top: 10px;
+                                font-family: $bodyFont;
+                                font-size: 18px;
+                                text-align: justify;
+                            }
+
                         }
-
-                        p {
-                            padding-top: 10px;
-                            font-family: $bodyFont;
-                            font-size: 18px;
-                            text-align: justify;
-                        }
-                     
                     }
+
+                    .programa-contenedor {
+                        transition: transform .2s;
+                        /* Animation */
+
+
+                        width: 40%;
+                        font-family: helvetica;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 30%;
+
+                        .blue {
+                            color: #53d9d1;
+                        }
+
+                        .pink {
+                            color: #f27b9b;
+                        }
+
+                        .orange {
+                            color: #eb7132;
+                        }
+
+                        .console {
+                            border: 1px solid #444;
+                            border-radius: 3px;
+                            margin: 2rem;
+
+                            box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.75);
+
+                            .top {
+                                background: #333;
+                                color: #666;
+                                text-align: center;
+                                font-size: 12px;
+                                padding: 5px;
+
+                                .options {
+                                    font-size: 16px;
+                                    float: left;
+                                }
+                            }
+
+                            .text {
+                                font-family: courier;
+                                color: #fff;
+                                font-size: 14px;
+                                padding: 0.25rem;
+                            }
+                        }
+
+                    }
+
+                    .programa-contenedor:hover {
+
+                        transform: scale(1.1);
+                        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+                    }
+
+
+
+                    .typewriter {
+                        overflow: hidden;
+                        width: fit-content;
+                        white-space: nowrap;
+                        border-right: 0.15em solid #eb7132;
+                        animation: typing 3s steps(15, end), blink-caret 0.75s step-end infinite;
+                    }
+
+                    /* The typing effect */
+                    @keyframes typing {
+                        from {
+                            width: 0;
+                        }
+
+                        to {
+                            width: 60%;
+                        }
+                    }
+
+                    /* The typewriter cursor effect */
+                    @keyframes blink-caret {
+
+                        from,
+                        to {
+                            border-color: transparent;
+                        }
+
+                        50% {
+                            border-color: orange;
+                        }
+
+
+                    }
+
                 }
 
+            }
+
+            .footer-contenedor {
+                width: 100%;
+                background-color: #D0F4EA;
+                h1{
+                    font-family: $titleFont;
+                    color: #414361;
+                    font-size: 40px;
+                    text-align: center;
+                }
+
+                .flex {
+                    height: 600px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
+
+                    .columna-contactos {
+                        width: 30%;
+                        height: 90%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        align-items: center;
+
+                        .contenedor1 {
+                            width: 80px;
+                            height: 80px;
+                            background-size: cover;
+                            background-image: url(https://www.flaticon.es/svg/static/icons/svg/1312/1312139.svg);
+                        }
+
+                        .contenedor2 {
+                            width: 80px;
+                            height: 80px;
+                            background-size: cover;
+                            background-image: url(https://www.flaticon.es/svg/static/icons/svg/733/733558.svg);
+                        }
+
+                        .contenedor3 {
+                            width: 80px;
+                            height: 80px;
+                            background-size: cover;
+                            background-image: url(https://www.flaticon.es/svg/static/icons/svg/185/185961.svg);
+                        }
+
+
+                    }
+                    .columna-divisor{
+                        margin-top: 150px;
+                        width: 30%;
+                        height: 60%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        .separador{
+                            width: 200px;
+                            height: 200px;
+                            background-color: white;
+                            border-radius: 100%;
+                            background-size: cover;
+                            background-image: url(https://www.flaticon.es/svg/static/icons/svg/862/862511.svg);
+                         
+                        }
+                      
+
+                    }
+                    .columna-involucrados{
+                        width: 30%;
+                        height: 90%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        h1{
+                            text-align: left;
+                        }
+                        p{
+                            margin-top: 50px;
+                            font-family: $bodyFont;
+                            text-align: justify;
+                        }
+
+                    }
+                }
             }
 
 
@@ -1319,14 +1520,16 @@ html {
 
 @media (min-width:1309px) {
     .sections {
-        .first-section{
-            h1{
+        .first-section {
+            h1 {
                 padding-left: 50px;
             }
+
             p {
                 padding-left: 50px;
             }
         }
+
         .section-skills {
             align-items: center;
             .skillsContainer  {
@@ -1380,80 +1583,83 @@ html {
 :root {
     // Try different transition timings
     // for some interesting effects
-    
+
     // --timing: cubic-bezier(0.705, 0.785, 0.555, 1.3);
     // --timing: linear;
     --timing: ease;
 }
 
 .scrollBar1 {
-  position: fixed;
-  top: 95vh;
-  height: 2px;
-  width: 0%;
-  background: goldenrod;
-  transition: width 200ms var(--timing);
-  text-align: right;
-  color: #fff;
-  span {
-    position: absolute;
-    top: -23px;
-    right: 15px;
-    font-size: 1.5em;
-    font-weight: 500;
-    display: block;
-    text-align: center;
-    &::after {
-      content: "%";
-      font-size: 0.8em;
-      position: absolute;
-      right: -15px;
-      bottom: 4px;
-      font-weight: 700;
-      opacity: 0.4;
+    position: fixed;
+    top: 95vh;
+    height: 2px;
+    width: 0%;
+    background: goldenrod;
+    transition: width 200ms var(--timing);
+    text-align: right;
+    color: #fff;
+
+    span {
+        position: absolute;
+        top: -23px;
+        right: 15px;
+        font-size: 1.5em;
+        font-weight: 500;
+        display: block;
+        text-align: center;
+
+        &::after {
+            content: "%";
+            font-size: 0.8em;
+            position: absolute;
+            right: -15px;
+            bottom: 4px;
+            font-weight: 700;
+            opacity: 0.4;
+        }
     }
-  }
 }
 
 .scrollBar2 {
-  position: fixed;
-  top: 0;
-  right: 2vw;
-  height: 0%;
-  width: 10px;
-  background: #49e;
-  transition: height 200ms var(--timing);
-  text-align: right;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  border-radius: 1em;
-  span {
-    position: absolute;
-    bottom: 3px;
-    left: 2px;
-    font-size: 1.5em;
-    font-weight: 500;
-    display: inline-block;
-    text-align: left;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    -webkit-transform-origin: bottom right;
-    transform-origin: bottom left;
-    &::after {
-      content: "%";
-      font-size: 0.8em;
-      position: absolute;
-      right: -15px;
-      bottom: 4px;
-      font-weight: 700;
-      opacity: 0.4;
+    position: fixed;
+    top: 0;
+    right: 2vw;
+    height: 0%;
+    width: 10px;
+    background: #49e;
+    transition: height 200ms var(--timing);
+    text-align: right;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 1em;
+
+    span {
+        position: absolute;
+        bottom: 3px;
+        left: 2px;
+        font-size: 1.5em;
+        font-weight: 500;
+        display: inline-block;
+        text-align: left;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom left;
+
+        &::after {
+            content: "%";
+            font-size: 0.8em;
+            position: absolute;
+            right: -15px;
+            bottom: 4px;
+            font-weight: 700;
+            opacity: 0.4;
+        }
     }
-  }
 }
 
 
 .st0 {
-  fill: #ffffff;
+    fill: #ffffff;
 }
-
