@@ -73,7 +73,7 @@ export class PortfolioPageController {
                     });
             });
 
-            if (navigator.serviceWorker.controller) {
+            /* if (navigator.serviceWorker.controller) {
                 console.log('Active service worker found, no need to register');
               } else {
                 navigator.serviceWorker
@@ -83,7 +83,7 @@ export class PortfolioPageController {
                   .then(function(reg) {
                     console.log(`SW has been registered for scope (${reg.scope})`);
                   });
-              }
+              } */
             
               const canvas = <HTMLCanvasElement>document.getElementById('c');
               canvas.width = document.body.clientWidth;
