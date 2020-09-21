@@ -2,6 +2,7 @@
 const soundSrc: string = '../../../assets/audio/coin.mp3';
 import './jquery.min.js';
 // Se exporta la clase para poder se utilizada en el script app
+import { InteractiveFlowers } from './animations/interactive-flowers'
 export class PortfolioPageController {
     // Propiedad view
     view: any;
@@ -35,11 +36,17 @@ export class PortfolioPageController {
         const sectionSlider: any = this.findInsideMe(".section-slider");
         const sectionWorks: any = this.findInsideMe(".section-trabajos");
         const sectionDesign: any = this.findInsideMe(".section-slider h1");
-        console.log(sectionDesign, sectionSkiT)
+        const canvasFlower: any = this.findInsideMe("canvas");
         const slider: any = this.findInsideMe(".slider-contenedor");
+        const audioTitle: any = this.findInsideMe(".contenedor-textos h1");
+        const audioText: any = this.findInsideMe(".contenedor-textos p");
+        const app2: any = this.findInsideMe("#app2");
+        const progra: any = this.findInsideMe(".programacion .contenedor-textos");
+        const prograCont: any = this.findInsideMe(".programa-contenedor");
         let count: number = 0;
         const soundEffect: HTMLAudioElement = new Audio(soundSrc);
         helloText.style.opacity = 1;
+        canvasFlower.style.display = "none";
         menu.style.display = "none";
         firstSection.style.display = "none";
         name.style.transform = "translateX(780px)";
@@ -50,6 +57,12 @@ export class PortfolioPageController {
         sectionTwo.style.display = "none";
         sectionSkiT.style.transform = "translateX(500px)";
         sectionDesign.style.transform = "translateY(500px)";
+        slider.style.transform = "translateY(500px)";
+        audioTitle.style.transform = "translateX(500px)";
+        audioText.style.transform = "translateY(250px)";
+        app2.style.transform = "translateX(-1100px)";
+        progra.style.transform = "translateX(1100px)";
+        prograCont.style.transform = "translateX(-1100px)";
         slider.style.opacity = 0;
         sectionSlider.style.display = "none";
         sectionWorks.style.display = "none";
@@ -74,6 +87,7 @@ export class PortfolioPageController {
                     chargScreen.style.opacity = 0;
                     setTimeout(function () {
                         menu.style.display = "flex";
+                        canvasFlower.style.display = "block";
                         chargScreen.style.display = "none";
                         firstSection.style.display = "flex";
                         secondSection.style.display = "flex";
@@ -87,8 +101,8 @@ export class PortfolioPageController {
                         }, 100);
                         setTimeout(function () {
                             name.style.transform = "translateX(0px)";
-                            secondTitle.style.transform = "translateY(0px)";
-                            secondText.style.transform = "translateY(0px)";
+                            // secondTitle.style.transform = "translateY(0px)";
+                            // secondText.style.transform = "translateY(0px)";
                         }, 300);
                     });
                     break;
@@ -102,6 +116,15 @@ export class PortfolioPageController {
             });
         }).mouseleave(function () {
             $(".image").css({
+                transform: "scale(1)"
+            });
+        });
+        $(".nameT").mouseenter(function () {
+            $(".nameT").css({
+                transform: "scale(1.1)"
+            });
+        }).mouseleave(function () {
+            $(".nameT").css({
                 transform: "scale(1)"
             });
         });
@@ -154,8 +177,56 @@ export class PortfolioPageController {
                     });
                 });
         });
+
+        // Método el cual le entra un selector y un all, de modo que concatena el id app junto al de la página y finalmente el del selector que queremos encontrar, luego comprueba si el booleano all es verdadero para devolver el elemento requerido sino devuelve todo el elemento
+
+
+        if (navigator.serviceWorker.controller) {
+            console.log('Active service worker found, no need to register');
+        } else {
+            navigator.serviceWorker
+                .register('sw.js', {
+                    scope: './'
+                })
+                .then(function (reg) {
+                    console.log(`SW has been registered for scope (${reg.scope})`);
+                });
+        }
+
+        const canvas = <HTMLCanvasElement>document.getElementById('c');
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        const flowers = new InteractiveFlowers(canvas);
+
+        /* const btn = document.getElementById('clearBtn');
+        btn.addEventListener('click', () => {
+            flowers.clearCanvas();
+        }); */
+        // const box: any = this.findInsideMe(".box");
+        // const TDBox: any = this.findInsideMe(".TDBox");
+        // const clouds: any = this.findInsideMe(".cloud", true);
+        // window.onscroll = (_:any) => {
+        //     console.log(`X: ${window.scrollX} Y: ${window.scrollY}`)
+        //     const p = (window.scrollY / window.innerHeight) * 100;
+        //     box.style.left = `${p}%`;
+        //     box.style.opacity = `${p / 100}`;
+
+        //     clouds[0].style.left = `${p * 2}%`;
+        //     clouds[1].style.left = `${p * 1.3}%`;
+
+        //     if (window.scrollY >= 340) {
+        //         TDBox.style.opacity = 1;
+        //         if (window.scrollY >= 350) {
+        //             TDBox.style.transform = `rotateY(${window.scrollY}deg)`;
+        //         }
+        //     } else {
+        //         TDBox.style.opacity = 0;
+        //     }
+        // }
     }
-    // Método el cual le entra un selector y un all, de modo que concatena el id app junto al de la página y finalmente el del selector que queremos encontrar, luego comprueba si el booleano all es verdadero para devolver el elemento requerido sino devuelve todo el elemento
+
+
+
     findInsideMe(selector: string, all = false) {
         const query = `#app #${this.component.id} ${selector}`;
         if (!all) {

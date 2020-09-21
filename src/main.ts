@@ -13,4 +13,5 @@ require('./assets/img/single.jpg');
 require('./assets/img/let_go_for_tonight.jpg');
 require('./app/pages/Portfolio/cositas');
 
+// require('./app/pages/Portfolio/animations/interactive-flowers');
 import './styles.scss';
