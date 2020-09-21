@@ -50,14 +50,14 @@ export class AudioPlayer {
 
         this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(), this.songFinished(); }
     }
-
+    // Método que detecta si la canción ha terminado
     songFinished() {
         this.audio.addEventListener('ended', (event) => {
             // this.nextButton.click();
             console.log("Acabé");
         });
     }
-
+    // Método que inicia los controles
     initControls() {
         if (this.playButton) {
             this.initPlay(this.playButton);
@@ -78,7 +78,7 @@ export class AudioPlayer {
             this.initDelay(this.delayButton);
         }
     }
-
+    // Método para adelantar la canción, le entra un HTMLElement, el cual si se cliquea ejecutará el adelantamiento de la progress bar
     initFastForward(domElement: HTMLElement) {
         domElement.onclick = () => {
             // console.log("fastForward");
@@ -90,7 +90,7 @@ export class AudioPlayer {
             this.setCurrentTime(progress);
         }
     }
-
+    // Método para retrasar la canción, le entra un HTMLElement, el cual si se cliquea ejecutará el retraso de la progress bar
     initDelay(domElement: HTMLElement) {
         domElement.onclick = () => {
             // console.log("delay");
@@ -102,7 +102,7 @@ export class AudioPlayer {
             this.setCurrentTime(progress);
         }
     }
-
+    // Método para pasar a la canción previa, le entra un HTMLElement, el cual si se cliquea ejecutará que cambie la canción junto a su foto, título, artista y tiempo
     initPrevious(domElement: HTMLElement) {
         domElement.onclick = () => {
             // console.log("previous");
@@ -125,7 +125,7 @@ export class AudioPlayer {
             }
         }
     }
-
+    // Método para pasar a la siguiente canción, le entra un HTMLElement, el cual si se cliquea ejecutará que cambie la canción junto a su foto, título, artista y tiempo
     public initNext(domElement: HTMLElement) {
         domElement.onclick = () => {
             // console.log("next");
@@ -146,7 +146,7 @@ export class AudioPlayer {
             } 
         }
     }
-
+    // Método para mutear la canción, le entra un HTMLElement el cual si se cliquea verificará si la canción está muteada para desmutearla sino para mutearla
     initMute(domElement: HTMLElement) {
         domElement.onclick = () => {
             if (!this.audio.muted) {
@@ -156,7 +156,7 @@ export class AudioPlayer {
             }
         }
     }
-
+    // Método para que inicie la canción, le entra un HTMLElement el cual si se cliquea verificará si la canción está sonando para pausarla sino para iniciarla
     initPlay(domElement: HTMLElement) {
         domElement.onclick = () => {
             if (!this.audio.paused) {
@@ -176,7 +176,7 @@ export class AudioPlayer {
     //         this.setCurrentTime(progress);
     //     };
     // }
-
+    // Método para iniciar los valores de la barra de progreso, esta toma el tiempo actual para pasarlo a minutos con segundos, también verifica que si la canción ha sido cambiada entonces su tiempo de duración ha de cambiar
     initBarValues() {
         this.currentTime.innerHTML = (this.formatTime(Math.floor(this.audio.currentTime)));
         this.audio.addEventListener('durationchange', (event) => {
@@ -187,7 +187,7 @@ export class AudioPlayer {
             }
         });
     }
-
+    // Método para formatear el tiempo a minutos y segundos, le entra una variable seconds la cual es procesada para dar el tiempo actual recorrido de la canción
     formatTime(seconds: number) {
         let min = Math.floor((seconds / 60));
         let sec = Math.floor(seconds - (min * 60));
@@ -199,15 +199,15 @@ export class AudioPlayer {
         }
         return `${min}:${valSec}`;
     }
-
+    // Método para iniciar la función setInterval, la cual formateará el tiempo cada cierto tiempo, de este modo se actualiza el tiempo de manera real
     initRun() {
         setInterval(this.formatTime, 500);
     }
-
+    // Método para actualizar el tiempo actual, le entra el progress que lleva la canción para multimplicarlo con el tiempo de duración
     setCurrentTime(progress: number) {
         this.audio.currentTime = this.audio.duration * progress;
     }
-
+    // Método para actualizar constantemente los tiempos juntos a la progress bar
     updateUI() {
         console.log("Updating UI");
         const total = this.audio.duration;
@@ -215,11 +215,11 @@ export class AudioPlayer {
         this.barProgress = (current / total) * 100;
         this.progress.style.width = `${this.barProgress}%`;
     }
-
+    // Método para darle play al audio si existe, sino imprimirá que hubo un error
     play() {
         this.audio.play().then().catch(err => console.log(`Error al reproducir el archivo: ${err}`));
     }
-
+    // Método para pausar el audio
     pause() {
         this.audio.pause();
     }

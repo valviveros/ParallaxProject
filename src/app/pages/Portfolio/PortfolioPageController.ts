@@ -19,21 +19,30 @@ export class PortfolioPageController {
     // Método que se carga junto a la página para poder aplicar animaciones, opacidades, transformaciones
     start() {
         // Se hace creación de variables que llamarán el método findInsideMe() para seleccionar el elemento requerido
+        const menu: any = this.findInsideMe(".menu");
         const chargScreen: any = this.findInsideMe(".chargingScreen");
         const helloText: any = this.findInsideMe(".helloText");
         const firstSection: any = this.findInsideMe(".first-section");
+        const name: any = this.findInsideMe(".first-section h1");
         const secondSection: any = this.findInsideMe(".second-section");
         const sectionTwo: any = this.findInsideMe(".section-2");
         const sectionSkills: any = this.findInsideMe(".section-skills");
+        const skillsCont: any = this.findInsideMe(".skillsContainer");
+        const sectionSlider: any = this.findInsideMe(".section-slider");
+        const sectionWorks: any = this.findInsideMe(".section-trabajos");
         let count: number = 0;
         const soundEffect: HTMLAudioElement = new Audio(soundSrc);
+        const image: any = this.findInsideMe(".image");
         helloText.style.opacity = 1;
+        menu.style.display = "none";
         firstSection.style.display = "none";
+        name.style.transform = "translateX(250px)";
         secondSection.style.display = "none";
         sectionTwo.style.display = "none";
-        sectionSkills.style.display = "none";
+        sectionSlider.style.display = "none";
+        sectionWorks.style.display = "none";
         // Función que hace un callback (otra función, en este caso vacía) para dentro de sí aplicar opacidad y entre otros estilos a los elementos html en cierto tiempo contado
-        chargScreen.addEventListener('click', () => {
+        helloText.addEventListener('click', () => {
             count += 1;
             switch (count) {
                 case 1:
@@ -52,26 +61,36 @@ export class PortfolioPageController {
                     soundEffect.play();
                     chargScreen.style.opacity = 0;
                     setTimeout(function () {
+                        menu.style.display = "flex";
                         chargScreen.style.display = "none";
                         firstSection.style.display = "flex";
                         secondSection.style.display = "flex";
                         sectionTwo.style.display = "block";
-                        sectionSkills.style.display = "flex";
+                        sectionSlider.style.display = "flex";
+                        sectionWorks.style.display = "block";
                         setTimeout(function () {
+                            menu.style.opacity = 1;
                             firstSection.style.opacity = 1;
+                            secondSection.style.opacity = 1;
                         }, 100);
+                        setTimeout(function() {
+                            name.style.transform = "translateX(0px)";
+                        }, 300);
                     });
                     break;
                 default:
                     break;
             }
         });
-        // setTimeout(function () {
-        //     chargScreen.style.opacity = 0;
-        //     setTimeout(function () {
-        //         chargScreen.style.display = 'none';
-        //     }, 400);
-        // }, 3000);
+        $(".image").mouseenter(function () {
+            $(".image").css({
+                transform: "scale(1.1)"
+            });
+        }).mouseleave(function () {
+            $(".image").css({
+                transform: "scale(1)"
+            });
+        });
         // Se hace selección del document con un JQuery para saber si este está cargado , de modo que ejecutará una función vacía la cuala hará selección del elemento con clase cursor
         $(document).ready(function () {
             var cursor = $(".cursor");

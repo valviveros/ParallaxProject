@@ -22,7 +22,7 @@ export class EasyPieChart {
         const span = document.createElement('span');
         let content = this.element.appendChild(span);
         content.setAttribute('style', 'line-height: 110px; z-index: 2;');
-        content.textContent = this.percent;
+        content.textContent = `${this.percent}%`;
 
         if (this.options.renderer === 'SVG') {
             this.renderer = new SVGRenderer(this.element, this.options);
@@ -46,7 +46,7 @@ export class EasyPieChart {
 	 * @param  {number} newValue Number between 0 and 100
 	 * @return {object}          Instance of the plugin for method chaining
 	 */
-    private update(newValue: number) {
+    public update(newValue: number) {
         if (this.options.animate) {
             this.renderer.animate(this.currentValue, newValue);
         } else {
