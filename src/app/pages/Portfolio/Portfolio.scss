@@ -30,12 +30,15 @@ $pixelFont: pressStart2P;
     src: url(../../../fonts/Montserrat-Regular.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 #portfolio-page {
     background: #2A2D43;
     // overflow-x: hidden;
     display: flex;
     flex-flow: column wrap;
-
     .sections {
         width: 100vw;
         height: 100vh;
@@ -67,7 +70,33 @@ $pixelFont: pressStart2P;
                 transition: all 1s ease;
             }
         }
+        .menu{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            height: 50px; 
+            font-family: $bodyFont;
+            transition: all 1s ease;
+            opacity: 0;
+            ul  {
+                list-style: none;
+                color: white;
+                display: flex;
+                float: right;
+            }
 
+            li {
+                a{
+                    text-decoration: none;
+                    padding:20px 30px 0 0;
+                    color: white; 
+                    cursor: none;
+                }
+                
+            }    
+        }
         .first-section {
             display: flex;
             flex-direction: column;
@@ -104,7 +133,8 @@ $pixelFont: pressStart2P;
             align-items: flex-start;
             color: white;
             background: #2A2D43;
-            
+            transition: all 1s ease;
+            opacity: 0;
             h1{
                 padding-left:50px;
                 font-family: $titleFont;
@@ -117,9 +147,10 @@ $pixelFont: pressStart2P;
                 font-size: 18px;
             } 
             img{
-                width: 40%;
-                // margin-left: 100px;
+                width: 50%;
                 align-self: center;
+                box-shadow:  4px 14px 2px rgba(14,30,37,.16);
+                border-radius: 5px;
             } 
         }
 
@@ -147,11 +178,13 @@ $pixelFont: pressStart2P;
                 font-size: 50px;
                 color: white;
             }
-            .container {
+            .skillsContainer {
                 display: grid;
                 // grid-template-columns: repeat(4, 160px);
                 // grid-gap: 80px;
                 margin: auto 0;
+                opacity: 0;
+                transition: all 1s ease;
 
                 .box {
                     width: 100%;
@@ -191,13 +224,8 @@ $pixelFont: pressStart2P;
         }
 
         .section-slider {
-            --point-to-go: 1;
-            --cur-point: 1;
-            --dist: 20px;
-            --start: 10px;
             background: #D0F4EA;
             display: flex;
-            // background: #0d1691;
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -915,7 +943,6 @@ $pixelFont: pressStart2P;
                     grid-template-rows: 70px 36px 26px 33px 13px 120px 20px 87px 27px 27px 17px 10px 47px 10px 30px 55px;
                     z-index: 5;
                     justify-content: center;
-
                     .player {
                         width: 177px;
                         height: 166px;
@@ -994,7 +1021,7 @@ $pixelFont: pressStart2P;
                             position: absolute;
 
                             div.btn {
-                                cursor: pointer;
+                                cursor: none;
                             }
 
                             .fastForwardBtn {
@@ -1090,7 +1117,7 @@ $pixelFont: pressStart2P;
         }
         .section-skills {
             align-items: flex-start;
-            .container {
+            .skillsContainer {
                 grid-template-columns: repeat(2, 160px);
                 grid-gap: 30px;
                 padding-left: 12px;
@@ -1114,7 +1141,7 @@ $pixelFont: pressStart2P;
         }
         .section-skills {
             align-items: center;
-            .container {
+            .skillsContainer  {
                 grid-template-columns: repeat(3, 160px);
                 grid-gap: 60px;
             }
@@ -1133,7 +1160,27 @@ $pixelFont: pressStart2P;
         }
         .section-skills {
             align-items: center;
-            .container {
+            .skillsContainer  {
+                grid-template-columns: repeat(4, 160px);
+                grid-gap: 100px;
+            }
+        }
+    }
+}
+
+@media (min-width:1309px) {
+    .sections {
+        .first-section{
+            h1{
+                padding-left: 50px;
+            }
+            p {
+                padding-left: 50px;
+            }
+        }
+        .section-skills {
+            align-items: center;
+            .skillsContainer  {
                 grid-template-columns: repeat(6, 160px);
                 grid-gap: 60px;
             }
