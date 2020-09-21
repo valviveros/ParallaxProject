@@ -178,10 +178,10 @@ export class PortfolioPageController {
         canvas.height = document.body.clientHeight;
         const flowers = new InteractiveFlowers(canvas);
 
-        const btn = document.getElementById('clearBtn');
+        /* const btn = document.getElementById('clearBtn');
         btn.addEventListener('click', () => {
             flowers.clearCanvas();
-        });
+        }); */
         // const box: any = this.findInsideMe(".box");
         // const TDBox: any = this.findInsideMe(".TDBox");
         // const clouds: any = this.findInsideMe(".cloud", true);
