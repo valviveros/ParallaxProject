@@ -1358,6 +1358,7 @@ html {
                     align-items: center;
 
                     .columna-contactos {
+                        background-color: blanchedalmond;
                         width: 30%;
                         height: 90%;
                         display: flex;
@@ -1389,6 +1390,8 @@ html {
 
                     }
                     .columna-divisor{
+                        background-color: blanchedalmond;
+
                         margin-top: 150px;
                         width: 30%;
                         height: 60%;
@@ -1409,6 +1412,8 @@ html {
 
                     }
                     .columna-involucrados{
+                        background-color: blanchedalmond;
+
                         width: 30%;
                         height: 90%;
                         display: flex;
@@ -1429,6 +1434,40 @@ html {
 
 
         }
+
+        .flores{
+
+            position: relative;
+            width: 100vw;
+            height: 50vw;
+            background: #FFA9E7;
+            font-family: $titleFont;
+            color: #414361;
+            overflow: hidden;
+
+            span{
+                margin: 6px;
+            }
+            #clearBtn{
+                margin: 6px;
+                height: 20px;
+                width: 50px;
+                background: #d0f4ea;
+                border-radius: 5px;
+                font-family: $bodyFont;
+                border: none;
+    
+            }
+            #c{
+                margin: 5px;
+                border: 2px solid mintcream;
+                border-radius: 5px;
+                width: 100%;
+                height: 800px;
+                overflow: hidden;
+                touch-action: none;
+            }
+        }
     }
 
     .cursor {
@@ -1444,6 +1483,7 @@ html {
         transition: transform 0.2s;
     }
 }
+
 
 @media (min-width:375px) and (max-width: 768px) {
     .sections {
@@ -1491,6 +1531,7 @@ html {
                 grid-gap: 60px;
             }
         }
+
     }
 }
 
@@ -1513,6 +1554,7 @@ html {
                 grid-gap: 100px;
             }
         }
+        
     }
 }
 

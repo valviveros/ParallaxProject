@@ -2,6 +2,7 @@
 const soundSrc: string = '../../../assets/audio/coin.mp3';
 import './jquery.min.js';
 // Se exporta la clase para poder se utilizada en el script app
+import { InteractiveFlowers } from './animations/interactive-flowers'
 export class PortfolioPageController {
     // Propiedad view
     view: any;
@@ -156,8 +157,56 @@ export class PortfolioPageController {
                     });
                 });
         });
+
+        // Método el cual le entra un selector y un all, de modo que concatena el id app junto al de la página y finalmente el del selector que queremos encontrar, luego comprueba si el booleano all es verdadero para devolver el elemento requerido sino devuelve todo el elemento
+
+
+        if (navigator.serviceWorker.controller) {
+            console.log('Active service worker found, no need to register');
+        } else {
+            navigator.serviceWorker
+                .register('sw.js', {
+                    scope: './'
+                })
+                .then(function (reg) {
+                    console.log(`SW has been registered for scope (${reg.scope})`);
+                });
+        }
+
+        const canvas = <HTMLCanvasElement>document.getElementById('c');
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        const flowers = new InteractiveFlowers(canvas);
+
+        const btn = document.getElementById('clearBtn');
+        btn.addEventListener('click', () => {
+            flowers.clearCanvas();
+        });
+        // const box: any = this.findInsideMe(".box");
+        // const TDBox: any = this.findInsideMe(".TDBox");
+        // const clouds: any = this.findInsideMe(".cloud", true);
+        // window.onscroll = (_:any) => {
+        //     console.log(`X: ${window.scrollX} Y: ${window.scrollY}`)
+        //     const p = (window.scrollY / window.innerHeight) * 100;
+        //     box.style.left = `${p}%`;
+        //     box.style.opacity = `${p / 100}`;
+
+        //     clouds[0].style.left = `${p * 2}%`;
+        //     clouds[1].style.left = `${p * 1.3}%`;
+
+        //     if (window.scrollY >= 340) {
+        //         TDBox.style.opacity = 1;
+        //         if (window.scrollY >= 350) {
+        //             TDBox.style.transform = `rotateY(${window.scrollY}deg)`;
+        //         }
+        //     } else {
+        //         TDBox.style.opacity = 0;
+        //     }
+        // }
     }
-    // Método el cual le entra un selector y un all, de modo que concatena el id app junto al de la página y finalmente el del selector que queremos encontrar, luego comprueba si el booleano all es verdadero para devolver el elemento requerido sino devuelve todo el elemento
+
+
+
     findInsideMe(selector: string, all = false) {
         const query = `#app #${this.component.id} ${selector}`;
         if (!all) {
