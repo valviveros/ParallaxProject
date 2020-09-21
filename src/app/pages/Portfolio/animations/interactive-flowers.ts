@@ -6,7 +6,7 @@ export class InteractiveFlowers {
   private readonly context: CanvasRenderingContext2D;
   private readonly canvasWidth: number;
   private readonly canvasHeight: number;
-  private flowers: Flower[] = [];
+  private flowers: Flower[] = [];//arrglo de flores
   private readonly randomizationService = new FlowerRandomizationService();
   private ctrlIsPressed = false;
   private mousePosition = new Point(-100, -100);
@@ -20,35 +20,35 @@ export class InteractiveFlowers {
     this.addInteractions();
   }
 
-  clearCanvas() {
+  clearCanvas() {//limpia el canvas
     this.flowers = [];
     this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
   }
 
-  private animateFlowers() {
+  private animateFlowers() {//pone en marcha el crecimiento de las flores
     if (this.flowers.every(f => f.stopChanging)) {
       return;
     }
     this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.flowers.forEach(flower => {
-      flower.increasePetalRadiusWithLimit();
-      flower.draw(this.context);
+      flower.increasePetalRadiusWithLimit();//se limita el crecimiento
+      flower.draw(this.context);//renderizado de la flor
     });
-    window.requestAnimationFrame(() => this.animateFlowers());
+    window.requestAnimationFrame(() => this.animateFlowers());//ejecución frame per frame
   }
 
-  private addInteractions() {
-    this.canvas.addEventListener('click', e => {
+  private addInteractions() {//se añaden la interacciones paqra que se cree la flor
+    this.canvas.addEventListener('click', e => {//reconoce un clic en el canvas
       if (this.ctrlIsPressed) {
         this.clearCanvas();
         return;
       }
-      this.calculateMouseRelativePositionInCanvas(e);
+      this.calculateMouseRelativePositionInCanvas(e);//calcula el lugar en el que ocurrio el evento
       const flower = this.randomizationService.getFlowerAt(this.mousePosition);
       this.flowers.push(flower);
       this.animateFlowers();
     });
-
+    //se valida el si ctrl esta presionado
     window.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.which === 17 || e.keyCode === 17) {
         this.ctrlIsPressed = true;
@@ -59,7 +59,8 @@ export class InteractiveFlowers {
     });
   }
 
-  private calculateMouseRelativePositionInCanvas(e: MouseEvent) {
+  private calculateMouseRelativePositionInCanvas(e: MouseEvent) {/* //calcula la posicion del clic dentro del canvas y manda la 
+    cooordenadas a Point para que se inicie todo el proceso en torno a dicho punto */
     this.mousePosition = new Point(
       e.clientX +
         (document.documentElement.scrollLeft || document.body.scrollLeft) -
@@ -70,7 +71,7 @@ export class InteractiveFlowers {
     );
   }
 
-  private addShadowEffect() {
+  private addShadowEffect() {//se añaden los efecto de sombra a las flores
     this.context.shadowBlur = 5;
     this.context.shadowOffsetX = 2;
     this.context.shadowOffsetY = 2;
