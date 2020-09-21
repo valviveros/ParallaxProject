@@ -3,27 +3,28 @@ import { update } from 'lodash';
 import { EasyPieChart } from './easyPieChart';
 var element: any = document.querySelectorAll(".chart");
 const skillsCont: any = document.querySelector(".skillsContainer");
-var chart: any;
+var count: number = 0;
 
-element.forEach(function (element: any) {
-  chart = new EasyPieChart(element, {
-    size: 160,
-    barColor: "#FF84E8",
-    scaleLength: 0,
-    lineWidth: 15,
-    trackColor: "#373737",
-    lineCap: "circle",
-    animate: ({ duration: 1000, enabled: true })
+function createCharts() {
+  element.forEach(function (element: any) {
+    new EasyPieChart(element, {
+      size: 160,
+      barColor: "#FF84E8",
+      scaleLength: 0,
+      lineWidth: 15,
+      trackColor: "#373737",
+      lineCap: "circle",
+      animate: ({ duration: 6000, enabled: true })
+    });
   });
-});
+}
 
 window.onscroll = () => {
-  console.log("entré");
-  console.log(window.scrollY);
-  element.forEach(function (element: any) {
-    if (window.scrollY >= 825) {
+  if (window.scrollY >= 825) {
+    count += 1;
+    if (count == 1) {
+      createCharts();
       skillsCont.style.opacity = 1;
-      element.chart.update(4000);
     }
-  });
+  }
 };

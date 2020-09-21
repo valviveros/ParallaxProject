@@ -85,13 +85,6 @@ export class PortfolioPageController {
         }).mouseleave(function () {
             image.style.transform = "scale(1)";
         });
-        // window.onscroll = () => {
-        //     console.log("entré");
-        //     console.log(window.scrollY);
-        //     if (window.scrollY >= 825) {
-        //         skillsCont.style.opacity = 1;
-        //     }
-        // };
         // Se hace selección del document con un JQuery para saber si este está cargado , de modo que ejecutará una función vacía la cuala hará selección del elemento con clase cursor
         $(document).ready(function () {
             var cursor = $(".cursor");
