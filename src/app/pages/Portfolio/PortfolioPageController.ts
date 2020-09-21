@@ -25,20 +25,27 @@ export class PortfolioPageController {
         const firstSection: any = this.findInsideMe(".first-section");
         const name: any = this.findInsideMe(".first-section h1");
         const secondSection: any = this.findInsideMe(".second-section");
+        const secondTitle: any = this.findInsideMe(".second-section h1");
+        const secondText: any = this.findInsideMe(".second-section p");
+        const secondImage: any = this.findInsideMe(".second-section img");
         const sectionTwo: any = this.findInsideMe(".section-2");
         const sectionSkills: any = this.findInsideMe(".section-skills");
+        const sectionSkiT: any = this.findInsideMe(".section-skills h1");
         const skillsCont: any = this.findInsideMe(".skillsContainer");
         const sectionSlider: any = this.findInsideMe(".section-slider");
         const sectionWorks: any = this.findInsideMe(".section-trabajos");
         let count: number = 0;
         const soundEffect: HTMLAudioElement = new Audio(soundSrc);
-        const image: any = this.findInsideMe(".image");
         helloText.style.opacity = 1;
         menu.style.display = "none";
         firstSection.style.display = "none";
-        name.style.transform = "translateX(250px)";
+        name.style.transform = "translateX(780px)";
         secondSection.style.display = "none";
+        secondTitle.style.transform = "translateY(250px)";
+        secondText.style.transform = "translateY(250px)";
+        secondImage.style.transform = "translateY(250px)";
         sectionTwo.style.display = "none";
+        sectionSkiT.style.transform = "translateX(500px)";
         sectionSlider.style.display = "none";
         sectionWorks.style.display = "none";
         // Función que hace un callback (otra función, en este caso vacía) para dentro de sí aplicar opacidad y entre otros estilos a los elementos html en cierto tiempo contado
@@ -73,8 +80,11 @@ export class PortfolioPageController {
                             firstSection.style.opacity = 1;
                             secondSection.style.opacity = 1;
                         }, 100);
-                        setTimeout(function() {
+                        setTimeout(function () {
                             name.style.transform = "translateX(0px)";
+                            secondTitle.style.transform = "translateY(0px)";
+                            secondText.style.transform = "translateY(0px)";
+                            secondImage.style.transform = "translateY(0px)";
                         }, 300);
                     });
                     break;
@@ -82,6 +92,12 @@ export class PortfolioPageController {
                     break;
             }
         });
+        // window.onscroll = () => {
+        //     console.log(scrollY);
+        //     if (window.scrollY >= 825) {
+        //         sectionSkiT.style.transform = "translateX(0px)";
+        //     }
+        // };
         $(".image").mouseenter(function () {
             $(".image").css({
                 transform: "scale(1.1)"

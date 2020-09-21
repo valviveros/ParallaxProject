@@ -109,19 +109,23 @@ html {
             color: #2A2D43;
             transition: all 1s ease;
             opacity: 0;
-            h1{
+
+            h1 {
                 font-size: 50px;
                 transition: all 1s ease;
             }
-            .parrafo1{
+
+            .parrafo1 {
                 margin-top: 230px;
             }
-            p{
+
+            p {
                 font-size: 18px;
                 font-family: $bodyFont;
                 color: #414361;
                 margin-top: 10px;
-            } 
+            }
+
             svg {
                 margin-top: 24px;
             }
@@ -140,18 +144,25 @@ html {
                 padding-left:50px;
                 font-family: $titleFont;
                 font-size: 50px;
+                // opacity: 0;
+                transition: all 1s ease;
             }
-            p{
+
+            p {
                 padding: 10px 100px 100px 50px;
                 font-family: $bodyFont;
                 text-align: justify;
                 font-size: 18px;
+                // opacity: 0;
+                transition: all 1s ease;
             } 
             img{
                 width: 50%;
                 align-self: center;
-                box-shadow:  4px 14px 2px rgba(14,30,37,.16);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
                 border-radius: 5px;
+                transition: all 1s ease;
+                // opacity: 0;
             } 
         }
 
@@ -171,6 +182,7 @@ html {
             width: 100%;
             background: #414361;
             font-family: $bodyFont;
+
             h1 {
                 font-family: $titleFont;
                 align-self: flex-start;
@@ -178,6 +190,7 @@ html {
                 margin-bottom: 50px;
                 font-size: 50px;
                 color: white;
+                transition: all 1s ease;
             }
             .skillsContainer {
                 display: grid;
@@ -233,6 +246,7 @@ html {
             svg {
                 width: 100%;
             }
+
             h1 {
                 font-family: $titleFont;
                 color: #414361;
@@ -241,6 +255,93 @@ html {
                 padding: 0 0 0 50px;
                 margin-bottom: 50px;
             }
+
+            .slider-contenedor {
+                margin: auto;
+                display: flex;
+                // height: 800px;
+                width: 88%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+                
+                .slider {
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
+                    border-radius: 5px;
+                }
+
+                ul,
+                li {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                }
+
+                ul.slider {
+                    position: relative;
+                    width: 800px;
+                    height: 600px;
+                }
+
+                ul.slider li {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    opacity: 0;
+                    width: inherit;
+                    height: inherit;
+                    transition: opacity .5s;
+                }
+
+                ul.slider li img {
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 600px;
+                    object-fit: cover;
+
+                }
+
+                ul.slider li:first-child {
+                    opacity: 1;
+                    /*Mostramos el primer <li>*/
+                }
+
+                ul.slider li:target {
+                    opacity: 1;
+                    /*Mostramos el <li> del enlace que pulsemos*/
+                }
+
+                .sliderBtn {
+                    text-align: center;
+                    margin: 20px;
+                }
+
+                .sliderBtn li {
+                    display: inline-block;
+                    text-align: center;
+                }
+
+                .sliderBtn li a {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    text-decoration: none;
+                    background-color: white;
+                    padding: 20px;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 20px;
+                    border-radius: 100%;
+                    cursor: none;
+                    
+                }
+                .sliderBtn li .active{
+                    background-color: #414361;
+                }
+            }
+          
+
         }
 
         .section-trabajos {
@@ -253,23 +354,28 @@ html {
 
             .flex {
                 display: flex;
+
                 .contenedor-textos {
                     display: flex;
                     width: 100%;
+
                     .texto {
                         color: #2A2D34;
                         padding: 0 0 0 50px;
+
                         h1 {
                             padding-top: 50px;
                             font-family: $titleFont;
                             font-size: 50px;
                         }
+
                         p {
                             padding-top: 10px;
                             font-family: $bodyFont;
                             font-size: 18px;
                             text-align: justify;
                         }
+                     
                     }
                 }
 
@@ -277,6 +383,7 @@ html {
             }
 
             #app2 {
+                margin-bottom: 100px;
                 display: flex;
                 flex-flow: column wrap;
                 width: 100%;
@@ -293,6 +400,8 @@ html {
                     // width: 100%;
                     // height: 100%;
                     display: grid;
+                    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.5));
+
                     // grid-template-columns: 552px 26px 12px 14px 4px 20px 28px 19px 30px 19px 20px 39px 22px 39px 10px 25px;
                     grid-template-columns: auto 26px 12px 14px 4px 20px 28px 19px 30px 19px 20px 39px 22px 39px 10px 25px auto;
                     grid-template-rows: 70px 36px 26px 33px 13px 120px 20px 87px 27px 27px 17px 10px 47px 10px 30px 55px;
@@ -1089,9 +1198,40 @@ html {
                 }
             }
 
+            .programacion{
+                width: 100%;
+                height: 900px;
+                background-color: #414361;
+                .contenedor-textos {
+                    display: flex;
+                    width: 40%;
+
+                    .texto {
+                        color: #ffffff;
+                        padding: 0 0 0 50px;
+
+                        h1 {
+                            padding-top: 50px;
+                            font-family: $titleFont;
+                            font-size: 50px;
+                        }
+
+                        p {
+                            padding-top: 10px;
+                            font-family: $bodyFont;
+                            font-size: 18px;
+                            text-align: justify;
+                        }
+                     
+                    }
+                }
+
+            }
+
 
         }
     }
+
     .cursor {
         position: fixed;
         width: 20px;
@@ -1109,13 +1249,15 @@ html {
 @media (min-width:375px) and (max-width: 768px) {
     .sections {
         .first-section {
-            h1{
+            h1 {
                 padding-left: 20px;
             }
+
             p {
                 padding-left: 20px;
             }
         }
+
         .section-skills {
             align-items: flex-start;
             .skillsContainer {
@@ -1125,21 +1267,24 @@ html {
             }
         }
     }
-    .cursor{
+
+    .cursor {
         display: none;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .sections {
-        .first-section{
-            h1{
+        .first-section {
+            h1 {
                 padding-left: 50px;
             }
+
             p {
                 padding-left: 50px;
             }
         }
+
         .section-skills {
             align-items: center;
             .skillsContainer  {
@@ -1149,16 +1294,19 @@ html {
         }
     }
 }
+
 @media (min-width:1024px) {
     .sections {
-        .first-section{
-            h1{
+        .first-section {
+            h1 {
                 padding-left: 50px;
             }
+
             p {
                 padding-left: 50px;
             }
         }
+
         .section-skills {
             align-items: center;
             .skillsContainer  {
@@ -1228,3 +1376,84 @@ html {
         stroke-dasharray: .001px 100px;
     }
 }
+
+:root {
+    // Try different transition timings
+    // for some interesting effects
+    
+    // --timing: cubic-bezier(0.705, 0.785, 0.555, 1.3);
+    // --timing: linear;
+    --timing: ease;
+}
+
+.scrollBar1 {
+  position: fixed;
+  top: 95vh;
+  height: 2px;
+  width: 0%;
+  background: goldenrod;
+  transition: width 200ms var(--timing);
+  text-align: right;
+  color: #fff;
+  span {
+    position: absolute;
+    top: -23px;
+    right: 15px;
+    font-size: 1.5em;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    &::after {
+      content: "%";
+      font-size: 0.8em;
+      position: absolute;
+      right: -15px;
+      bottom: 4px;
+      font-weight: 700;
+      opacity: 0.4;
+    }
+  }
+}
+
+.scrollBar2 {
+  position: fixed;
+  top: 0;
+  right: 2vw;
+  height: 0%;
+  width: 10px;
+  background: #49e;
+  transition: height 200ms var(--timing);
+  text-align: right;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  span {
+    position: absolute;
+    bottom: 3px;
+    left: 2px;
+    font-size: 1.5em;
+    font-weight: 500;
+    display: inline-block;
+    text-align: left;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transform-origin: bottom right;
+    transform-origin: bottom left;
+    &::after {
+      content: "%";
+      font-size: 0.8em;
+      position: absolute;
+      right: -15px;
+      bottom: 4px;
+      font-weight: 700;
+      opacity: 0.4;
+    }
+  }
+}
+
+
+.st0 {
+  fill: #ffffff;
+}
+
