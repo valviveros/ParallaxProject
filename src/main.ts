@@ -1,5 +1,5 @@
 require('./app/app');
-require('./app/pages/Portfolio/skills');
+require('./app/pages/Portfolio/animations');
 require('./app/pages/Portfolio/AudioPlayer');
 require('./assets/audio/mario.mp3');
 require('./assets/audio/how-you-like-that.mp3');
@@ -12,7 +12,5 @@ require('./assets/img/everything_i_wanted.jpg');
 require('./assets/img/ice_cream.jpg');
 require('./assets/img/single.jpg');
 require('./assets/img/let_go_for_tonight.jpg');
-require('./app/pages/Portfolio/cositas');
-
-// require('./app/pages/Portfolio/animations/interactive-flowers');
+require('./app/pages/Portfolio/progressBar');
 import './styles.scss';

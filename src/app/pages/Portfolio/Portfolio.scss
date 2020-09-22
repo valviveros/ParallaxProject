@@ -1285,7 +1285,7 @@ html {
                             border: 1px solid #444;
                             border-radius: 3px;
                             margin: 2rem;
-
+                            transition: all 1s ease;
                             box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.75);
 
                             .top {
@@ -1310,16 +1310,7 @@ html {
                         }
 
                     }
-
-                    .programa-contenedor:hover {
-
-                        transform: scale(1.1);
-                        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-
-                    }
-
-
-
+                    
                     .typewriter {
                         overflow: hidden;
                         width: fit-content;

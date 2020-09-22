@@ -46,7 +46,7 @@ export class FlowerRandomizationService {
     );
     return new Flower(flowerCenter, numberOfPetals, petal); //finalmente se retorna la flor
   }
-
+  // Método que recibe dos number y retorna la flor en el punto presionado
   getFlowerOnCanvas(canvasWidth: number, canvasHeight: number): Flower {
     return this.getFlowerAt(
       new Point(

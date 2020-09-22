@@ -13,12 +13,12 @@ export class Flower {
     this.originalPetalRadius = this.petal.radius;
   }
 
-  //recibe información del area del canvas
+  // recibe información del area del canvas y llama dos métodos
   draw(context: CanvasRenderingContext2D) {//dibujalos petalos
     this.drawPetals(context);
     this.flowerCenter.draw(context);
   }
-  //modifica las dimenciones del petalo
+  //modifica las dimensiones del pétalo
   increasePetalRadius() {
     this.petal = new Petal(
       this.petal.centerPoint,
@@ -28,9 +28,10 @@ export class Flower {
       this.petal.color
     );
   }
-
-  increasePetalRadiusWithLimit() {//evita que las flores crescan infinitamente
-    if (this.petal.radius < this.originalPetalRadius + 20) {//limita el crecimiento hata 20 unidades
+//evita que las flores crezcan infinitamente
+  increasePetalRadiusWithLimit() {
+    //limita el crecimiento hata 20 unidades
+    if (this.petal.radius < this.originalPetalRadius + 20) {
       this.stopChanging = false;
       this.increasePetalRadius();
     } else {

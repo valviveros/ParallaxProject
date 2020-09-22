@@ -47,7 +47,7 @@ class App {
 // Se hace llamado de la clase App() para poder renderizar la página
 const app = new App();
 app.render();
-require('./pages/Portfolio/phone')
+require('./pages/Portfolio/phone');
 
 
 

@@ -86,6 +86,7 @@ export class PortfolioPageController {
                     soundEffect.load();
                     soundEffect.play();
                     chargScreen.style.opacity = 0;
+                    // Método que ejecuta una función en cierto tiempo para cambiar las propiedades de los elementos, este metodo se hace aplica varias veces (2 anidados)
                     setTimeout(function () {
                         menu.style.display = "flex";
                         canvasFlower.style.display = "block";
@@ -102,8 +103,6 @@ export class PortfolioPageController {
                         }, 100);
                         setTimeout(function () {
                             name.style.transform = "translateX(0px)";
-                            // secondTitle.style.transform = "translateY(0px)";
-                            // secondText.style.transform = "translateY(0px)";
                         }, 300);
                     });
                     break;
@@ -111,6 +110,7 @@ export class PortfolioPageController {
                     break;
             }
         });
+        // Con JQuery se hace una selección del elemento y ejecuta una función para cambiarle el estilo a la misma una vez que entra el mouse o sale
         $(".image").mouseenter(function () {
             $(".image").css({
                 transform: "scale(1.1)"
@@ -120,6 +120,7 @@ export class PortfolioPageController {
                 transform: "scale(1)"
             });
         });
+        // Con JQuery se hace una selección del elemento y ejecuta una función para cambiarle el estilo a la misma una vez que entra el mouse o sale
         $(".nameT").mouseenter(function () {
             $(".nameT").css({
                 transform: "scale(1.1)"
@@ -179,55 +180,13 @@ export class PortfolioPageController {
                 });
         });
 
-        // Método el cual le entra un selector y un all, de modo que concatena el id app junto al de la página y finalmente el del selector que queremos encontrar, luego comprueba si el booleano all es verdadero para devolver el elemento requerido sino devuelve todo el elemento
-
-
-        if (navigator.serviceWorker.controller) {
-            console.log('Active service worker found, no need to register');
-        } else {
-            navigator.serviceWorker
-                .register('sw.js', {
-                    scope: './'
-                })
-                .then(function (reg) {
-                    console.log(`SW has been registered for scope (${reg.scope})`);
-                });
-        }
-
         const canvas = <HTMLCanvasElement>document.getElementById('c');
         canvas.width = document.body.clientWidth;
         canvas.height = document.body.clientHeight;
         const flowers = new InteractiveFlowers(canvas);
-
-        /* const btn = document.getElementById('clearBtn');
-        btn.addEventListener('click', () => {
-            flowers.clearCanvas();
-        }); */
-        // const box: any = this.findInsideMe(".box");
-        // const TDBox: any = this.findInsideMe(".TDBox");
-        // const clouds: any = this.findInsideMe(".cloud", true);
-        // window.onscroll = (_:any) => {
-        //     console.log(`X: ${window.scrollX} Y: ${window.scrollY}`)
-        //     const p = (window.scrollY / window.innerHeight) * 100;
-        //     box.style.left = `${p}%`;
-        //     box.style.opacity = `${p / 100}`;
-
-        //     clouds[0].style.left = `${p * 2}%`;
-        //     clouds[1].style.left = `${p * 1.3}%`;
-
-        //     if (window.scrollY >= 340) {
-        //         TDBox.style.opacity = 1;
-        //         if (window.scrollY >= 350) {
-        //             TDBox.style.transform = `rotateY(${window.scrollY}deg)`;
-        //         }
-        //     } else {
-        //         TDBox.style.opacity = 0;
-        //     }
-        // }
     }
 
-
-
+    // Método el cual le entra un selector y un all, de modo que concatena el id app junto al de la página y finalmente el del selector que queremos encontrar, luego comprueba si el booleano all es verdadero para devolver el elemento requerido sino devuelve todo el elemento
     findInsideMe(selector: string, all = false) {
         const query = `#app #${this.component.id} ${selector}`;
         if (!all) {
@@ -236,13 +195,14 @@ export class PortfolioPageController {
             return document.querySelectorAll(query);
         }
     }
-    // Método el cual hace llamado/importación de la hoja de estilos de la página y luego de la vista que ene ste caso es el html de la página 
+    // Método el cual hace llamado/importación de la hoja de estilos de la página y luego de la vista que en este caso es el html de la página 
     loadView() {
         require(`./${this.component.style}`);
         this.view = require(`./${this.component.view}`);
     }
     // Método que retorna un arreglo del id del contenedor secundario, y el fragmento de la página del html
     getView(): [string, DocumentFragment] {
+        // El método createRange crea un un rango  y el createContextualFragment recibe un string y retorna un DocumentFragment el cual es el HTML 
         return [this.component.id, document.createRange().createContextualFragment(this.view)];
     }
 }

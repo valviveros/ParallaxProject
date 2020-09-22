@@ -1,5 +1,6 @@
 // Se hace importación de las librerías que se necesitan
 import { EasyPieChart } from './easyPieChart';
+// Se llaman los elementos necesarios por medio del método querySelector el cual recibe un string y nos devuelve el respectivo elemento
 var element: any = document.querySelectorAll(".chart");
 const secondImage: any = document.querySelector(".second-section img");
 const skillsCont: any = document.querySelector(".skillsContainer");
@@ -28,9 +29,9 @@ export function createCharts() {
     });
   });
 }
-// Función que al hacer un scroll dentro de la página se ejecuta, este revisa que este en la altura de la sección que se quiere que carguen los charts
+// Función que al hacer un scroll dentro de la página se ejecuta, este revisa que este en la altura de la sección que se quiere que carguen los charts, cambie posiciones u propiedades de los elementos llamados
 window.onscroll = () => {
-  console.log("chart", scrollY);
+  // console.log("chart", scrollY);
   if (window.scrollY >= 300) {
     secondTitle.style.transform = "translateY(0px)";
     secondText.style.transform = "translateY(0px)";

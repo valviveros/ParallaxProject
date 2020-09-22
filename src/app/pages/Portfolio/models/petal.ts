@@ -17,8 +17,8 @@ export class Petal {
     this.vertices = this.getVertices();
     this.controlPoints = this.getControlPoints(this.vertices);
   }
-
-  draw(context: CanvasRenderingContext2D) { //Esta funcion dibuja los petalos basandoce en un par de funciones especiales
+  //Esta funcion dibuja los petalos basandose en un par de funciones especiales, esta recibe un CanvasRenderingContext2D
+  draw(context: CanvasRenderingContext2D) { 
     context.save();
     context.beginPath();
     context.moveTo(this.centerPoint.x, this.centerPoint.y);
@@ -54,7 +54,7 @@ export class Petal {
     context.fill();
     context.restore();
   }
-
+  // Este método privado calcula las posiciones y angulos del petalo y retorna cada posicion(punto)
   private getVertices(): Point[] {
     //setea los vertices de las funciones
     const halfAngleSpan = 0.5 * this.angleSpan * rad;
@@ -69,7 +69,7 @@ export class Petal {
       this.centerPoint
     ];
   }
-  //recibe los vertices seteados para formar los puntos de control de los petalos
+  //recibe los vertices seteados para formar los puntos de control de los petalos, los cuales retorna
   private getControlPoints(vertices: Point[]): Point[][] {
     const controlPoints: Point[][] = [];
     for (let i = 1; i < vertices.length - 1; i++) {

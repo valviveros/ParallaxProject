@@ -13,5 +13,3 @@ $(document).scroll(function (e) {
   $(".scrollBar2").css("height", scrollPercent + "%");
   $(".scrollBar2 span").text(roundScroll);
 });
-
-
