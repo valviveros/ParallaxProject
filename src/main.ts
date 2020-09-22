@@ -1,6 +1,7 @@
 require('./app/app');
 require('./app/pages/Portfolio/skills');
 require('./app/pages/Portfolio/AudioPlayer');
+require('./assets/audio/mario.mp3');
 require('./assets/audio/how-you-like-that.mp3');
 require('./assets/audio/everything-i-wanted.mp3');
 require('./assets/audio/ice-cream.mp3');

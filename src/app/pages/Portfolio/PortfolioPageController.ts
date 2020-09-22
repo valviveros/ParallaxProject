@@ -1,5 +1,5 @@
 // Se importa el sonido para adquirir su url
-const soundSrc: string = '../../../assets/audio/coin.mp3';
+// const soundSrc: any = require('../../../assets/audio/coin.mp3');
 import './jquery.min.js';
 // Se exporta la clase para poder se utilizada en el script app
 import { InteractiveFlowers } from './animations/interactive-flowers'
@@ -44,7 +44,8 @@ export class PortfolioPageController {
         const progra: any = this.findInsideMe(".programacion .contenedor-textos");
         const prograCont: any = this.findInsideMe(".programa-contenedor");
         let count: number = 0;
-        const soundEffect: HTMLAudioElement = new Audio(soundSrc);
+        const helloAudio: any = this.findInsideMe(".helloAudio");
+        const soundEffect: HTMLAudioElement = new Audio(helloAudio.dataset.src);
         helloText.style.opacity = 1;
         canvasFlower.style.display = "none";
         menu.style.display = "none";
