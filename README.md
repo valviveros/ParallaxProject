@@ -13,7 +13,7 @@ Los web bundlers se encargan de la gestión de dependencias de nuestros proyecto
 
 ## WebPack
 
-![WebPack](./r-assets/webpack.png)
+![WebPack](r-assets/img/webpack.png)
 
 Webpack es básicamente un empaquetador de módulos estáticos para aplicaciones en JavaScript. Cuando webpack compila una aplicación internamente genera un grafo de dependencias que mapeará todos los módulos que el proyecto requiere y generará los paquetes asociados al mismo, de hecho webpack nos permite trabajar el concepto de Javascript modular como se presenta en NodeJS pues el mismo se encargará de transpilar nuestro desarrollo a una versión compatible para los navegadores y además desde la versión *4.0.0* ya no es necesario un archivo de configuración base para poder realizar el empaquetado, aunque esto no descarta la posibilidad de poder crear uno.
 
