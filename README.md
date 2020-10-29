@@ -1,3 +1,7 @@
+# Parallax Portfolio
+
+[**Aquí**](https://parallaxportfolio.web.app/) puedes revisar el Parallax Portoflio. ¡Visítalo!
+
 # Web Bundlers: Webpack
 
 Los web bundlers se encargan de la gestión de dependencias de nuestros proyectos, la compresión y la generación de paquetes de código listo para producción, entre otras cosas. Para nuestro caso actual nos centraremos en estudiar [**Webpack**](https://webpack.js.org/), aunque no dejen de revisar otros empaquetadores como:
@@ -7,7 +11,7 @@ Los web bundlers se encargan de la gestión de dependencias de nuestros proyecto
 * [**Rollup**](https://www.npmjs.com/package/rollup)
 * [**Parcel**](https://parceljs.org/)
 
-##WebPack
+## WebPack
 
 ![WebPack](./r-assets/webpack.png)
 
